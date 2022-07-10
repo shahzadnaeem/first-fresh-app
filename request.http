@@ -1,0 +1,6 @@
+
+GET http://localhost:8000/api/joke HTTP/1.1
+
+###
+
+GET http://localhost:8000/about HTTP/1.1
