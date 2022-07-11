@@ -13,3 +13,5 @@ deno task start
 ```
 
 This will watch the project directory and restart as necessary.
+
+Watch mode fails with Firefox for some reason and manual page refresh is required 😕
