@@ -28,4 +28,4 @@ Watch mode fails with Firefox for some reason and manual page refresh is require
   - [Typescript](https://preactjs.com/guide/v10/typescript)
 - [twind](https://twind.dev/)
   - [deno](https://deno.land/manual/jsx_dom/twind)
-  - [JS Template literals - Tagged template (eg tw`a b c`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+  - [JS Template literals - Tagged template (eg tw\`a b c\`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
