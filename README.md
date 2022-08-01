@@ -14,7 +14,7 @@ deno task start
 
 This will watch the project directory and restart as necessary.
 
-Watch mode fails with Firefox for some reason and manual page refresh is required 😕
+**Watch mode fails with Firefox for some reason and manual page refresh is required 😕 - see Console for error**
 
 ### Links
 
@@ -28,4 +28,5 @@ Watch mode fails with Firefox for some reason and manual page refresh is require
   - [Typescript](https://preactjs.com/guide/v10/typescript)
 - [twind](https://twind.dev/)
   - [deno](https://deno.land/manual/jsx_dom/twind)
+- [MDN](https://developer.mozilla.org)
   - [JS Template literals - Tagged template](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) - eg. ``class={tw`a b c`}``
