@@ -6,6 +6,11 @@ export interface User extends UserData {
   id: number;
 }
 
+class UserException extends Error {}
+export class UserInvalidException extends UserException {}
+export class UserExistsException extends UserException {}
+export class UserNotFoundException extends UserException {}
+
 export const USERS: User[] = [
   {
     id: 1,
@@ -16,6 +21,10 @@ export const USERS: User[] = [
     email: "user2@example.com",
   },
 ];
+
+export const getUsers = () => {
+  return USERS;
+};
 
 export const getUserById = (id: number) => {
   return USERS.find((u) => u.id === id);
@@ -36,6 +45,18 @@ const nextId = () => {
 };
 
 export const createUser = (userData: UserData): User => {
+  if (!userData.email) {
+    throw new UserInvalidException(
+      `Invalid user data supplied`,
+    );
+  }
+
+  if (getUserByEmail(userData.email)) {
+    throw new UserExistsException(
+      `User with email: '${userData.email}' already exists`,
+    );
+  }
+
   const id = nextId();
 
   const newUser: User = {
@@ -46,4 +67,26 @@ export const createUser = (userData: UserData): User => {
   USERS.push(newUser);
 
   return newUser;
+};
+
+export const updateUser = (id: number, userData: UserData): User => {
+  const validatedUser = getUserById(id);
+
+  if (!validatedUser) {
+    throw new UserNotFoundException(
+      `User with id: '${id}' not found`,
+    );
+  }
+
+  const userWithTargetEmail = getUserByEmail(userData.email);
+
+  if (userWithTargetEmail && userWithTargetEmail.id !== id) {
+    throw new UserExistsException(
+      `User with email: '${userData.email}' already exists`,
+    );
+  }
+
+  validatedUser.email = userData.email;
+
+  return validatedUser;
 };

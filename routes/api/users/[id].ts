@@ -1,11 +1,11 @@
 import { Handlers } from "$fresh/server.ts";
 
 import {
-  createUser,
-  getUserByEmail,
   getUserById,
-  User,
+  updateUser,
   UserData,
+  UserInvalidException,
+  UserNotFoundException,
 } from "../../../data/users.ts";
 
 export const handler: Handlers = {
@@ -19,28 +19,37 @@ export const handler: Handlers = {
         user,
       }));
     } else {
-      return new Response(null, { status: 404 });
+      return new Response(
+        JSON.stringify({ error: `User with id: ${id} NOT FOUND` }),
+        {
+          status: 404,
+        },
+      );
     }
   },
-  async POST(req, ctx) {
-    const body = await req.json();
+  async PUT(req, ctx) {
+    const id = Number(ctx.params.id);
+    const userData: UserData = await req.json();
 
-    if (body.email) {
-      const userData: UserData = {
-        email: body.email,
-      };
-
-      if (!getUserByEmail(body.email)) {
-        const user = createUser(userData);
-
-        return new Response(JSON.stringify({
-          user,
-        }));
+    try {
+      const user = updateUser(id, userData);
+      return new Response(JSON.stringify({
+        user,
+      }));
+    } catch (e) {
+      if (e instanceof UserNotFoundException) {
+        return new Response(JSON.stringify({ error: e.message }), {
+          status: 404,
+        });
+      } else if (e instanceof UserInvalidException) {
+        return new Response(JSON.stringify({ error: e.message }), {
+          status: 400,
+        });
       } else {
-        return new Response(null, { status: 409 });
+        return new Response(JSON.stringify({ error: e.message }), {
+          status: 500,
+        });
       }
-    } else {
-      return new Response(null, { status: 400 });
     }
   },
 };

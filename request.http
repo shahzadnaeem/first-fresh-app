@@ -20,10 +20,26 @@ GET http://localhost:8000/api/users/1 HTTP/1.1
 
 ###
 
-POST http://localhost:8000/api/users/1 HTTP/1.1
+POST http://localhost:8000/api/users HTTP/1.1
 
 {
     "email": "new-2@example.com"
+}
+
+###
+
+POST http://localhost:8000/api/users HTTP/1.1
+
+{
+    "invalid": "new-2@example.com"
+}
+
+###
+
+PUT http://localhost:8000/api/users/1 HTTP/1.1
+
+{
+    "email": "new-email-address@example.com"
 }
 
 ###

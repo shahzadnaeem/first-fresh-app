@@ -3,6 +3,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { tw } from "../../utils/twind.ts";
 
 interface User {
   login: string;
@@ -28,7 +29,7 @@ export default function Page({ data }: PageProps<User | null>) {
   }
 
   return (
-    <div>
+    <div class={tw`grid gap-4 mx-auto mt-4 max-w-md`}>
       <img src={data.avatar_url} width={64} height={64} />
       <h1>{data.name}</h1>
       <p>{data.login}</p>

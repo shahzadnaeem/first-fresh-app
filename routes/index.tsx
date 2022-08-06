@@ -5,8 +5,9 @@ import { Fragment, h } from "preact";
 import { tw } from "@twind";
 import Counter from "../islands/Counter.tsx";
 import LinkTo from "../components/LinkTo.tsx";
+import Home from "../components/Home.tsx";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <div
@@ -33,6 +34,8 @@ export default function Home() {
             <LinkTo link="/about">About Page</LinkTo>
           </div>
         </div>
+
+        <Home />
       </div>
     </>
   );

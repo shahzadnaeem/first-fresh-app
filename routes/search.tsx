@@ -4,6 +4,7 @@
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { tw } from "@twind";
+import Home from "../components/Home.tsx";
 
 const NAMES = ["Alice", "Bob", "Charlie", "Dave", "Eve", "Frank"];
 
@@ -25,15 +26,24 @@ export const handler: Handlers<Data> = {
 export default function Page({ data }: PageProps<Data>) {
   const { results, query, req } = data;
   return (
-    <div class={tw`p-4`}>
-      <form>
-        <input type="text" name="q" value={query} />
-        <button type="submit">Search</button>
+    <div class={tw`grid gap-4 mx-auto mt-4 max-w-md`}>
+      <h1 class={tw`text-2xl`}>Search page ...</h1>
+
+      <form class={tw`grid grid-cols-2 gap-2`}>
+        <input
+          class={tw`border-2`}
+          type="text"
+          name="q"
+          value={query}
+          placeholder="Type here..."
+        />
+        <button class={tw`ring-2`} type="submit">Search</button>
       </form>
-      <ul>
+
+      <ul class={tw`grid grid-flow-col gap-4 justify-evenly`}>
         {results.map((name) => <li key={name}>{name}</li>)}
       </ul>
-      <p>{JSON.stringify(req)}</p>
+      <Home />
     </div>
   );
 }
