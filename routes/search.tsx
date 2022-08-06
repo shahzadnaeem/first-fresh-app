@@ -18,7 +18,9 @@ export const handler: Handlers<Data> = {
   GET(req, ctx) {
     const url = new URL(req.url);
     const query = url.searchParams.get("q") || "";
-    const results = NAMES.filter((name) => name.includes(query));
+    const results = NAMES.filter((name) =>
+      name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+    );
     return ctx.render({ inputs: NAMES, results, query });
   },
 };
@@ -62,6 +64,8 @@ export default function Page({ data }: PageProps<Data>) {
   return (
     <div class={tw`grid gap-4 mx-auto mt-4 max-w-md`}>
       <H1>Search</H1>
+
+      <p>Using standard HTTP {"<form>"} behaviour - look for '?q=' in URL</p>
 
       <form class={tw`grid grid-cols-2 gap-2`}>
         <input
