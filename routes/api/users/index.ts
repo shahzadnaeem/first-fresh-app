@@ -1,24 +1,20 @@
-import { HandlerContext, Handlers } from "$fresh/server.ts";
+import { Handlers } from "$fresh/server.ts";
 
 import {
   createUser,
-  getUserByEmail,
-  getUserById,
   getUsers,
-  User,
   UserData,
   UserExistsException,
   UserInvalidException,
-  UserNotFoundException,
 } from "../../../data/users.ts";
 
 export const handler: Handlers = {
-  GET(req, ctx) {
+  GET() {
     return new Response(JSON.stringify({
       users: getUsers(),
     }));
   },
-  async POST(req, ctx) {
+  async POST(req) {
     const userData: UserData = await req.json();
 
     try {

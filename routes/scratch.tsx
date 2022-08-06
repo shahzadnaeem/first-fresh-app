@@ -4,38 +4,39 @@ import { tw } from "@twind";
 
 import Home from "../components/Home.tsx";
 
+function Para() {
+  return (
+    <p
+      class={tw
+        `border border-dashed border-blue-600 rounded-full p-2 text-center`}
+    >
+      Stuff for you!
+    </p>
+  );
+}
+
 export default function Page() {
   return (
-    <div class={tw`bg-green-500 m-4 p-2`}>
-      <h1 class={tw`text-2xl`}>Scratch page ...</h1>
+    <div
+      class={tw
+        `bg-green-100 border-1 border-green-800 outline-1 grid gap-4 mx-auto mt-4 max-w-md`}
+    >
+      <h1 class={tw`text-2xl mb-2 text-center`}>Scratch</h1>
 
       <div
-        class={tw`h-56 bg-yellow-100 grid grid-cols-4 gap-4 content-center p-4`}
+        class={tw`bg-yellow-50 grid grid-cols-2 gap-4 p-4`}
       >
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
-        <p class={tw`border border-dashed border-blue-600 rounded-full p-2`}>
-          Stuff for you!
-        </p>
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
+        <Para />
       </div>
 
       <Home />
