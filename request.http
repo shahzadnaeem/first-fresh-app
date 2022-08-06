@@ -3,4 +3,29 @@ GET http://localhost:8000/api/joke HTTP/1.1
 
 ###
 
+GET http://localhost:8000/api/users HTTP/1.1
+
+###
+
+POST http://localhost:8000/api/users HTTP/1.1
+
+{
+    "posted": "This data was sent...",
+    "with": { "this": "thing also..." }
+}
+
+###
+
+GET http://localhost:8000/api/users/1 HTTP/1.1
+
+###
+
+POST http://localhost:8000/api/users/1 HTTP/1.1
+
+{
+    "email": "new-2@example.com"
+}
+
+###
+
 GET http://localhost:8000/about HTTP/1.1

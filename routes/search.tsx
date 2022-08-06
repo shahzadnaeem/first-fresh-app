@@ -10,6 +10,7 @@ const NAMES = ["Alice", "Bob", "Charlie", "Dave", "Eve", "Frank"];
 interface Data {
   results: string[];
   query: string;
+  req: Request;
 }
 
 export const handler: Handlers<Data> = {
@@ -17,12 +18,12 @@ export const handler: Handlers<Data> = {
     const url = new URL(req.url);
     const query = url.searchParams.get("q") || "";
     const results = NAMES.filter((name) => name.includes(query));
-    return ctx.render({ results, query });
+    return ctx.render({ results, query, req });
   },
 };
 
 export default function Page({ data }: PageProps<Data>) {
-  const { results, query } = data;
+  const { results, query, req } = data;
   return (
     <div class={tw`p-4`}>
       <form>
@@ -32,6 +33,7 @@ export default function Page({ data }: PageProps<Data>) {
       <ul>
         {results.map((name) => <li key={name}>{name}</li>)}
       </ul>
+      <p>{JSON.stringify(req)}</p>
     </div>
   );
 }

@@ -5,11 +5,13 @@
 import * as $0 from "./routes/[name].tsx";
 import * as $1 from "./routes/about.tsx";
 import * as $2 from "./routes/api/joke.ts";
-import * as $3 from "./routes/countdown.tsx";
-import * as $4 from "./routes/github/[username].tsx";
-import * as $5 from "./routes/index.tsx";
-import * as $6 from "./routes/scratch.tsx";
-import * as $7 from "./routes/search.tsx";
+import * as $3 from "./routes/api/users/[id].ts";
+import * as $4 from "./routes/api/users/index.ts";
+import * as $5 from "./routes/countdown.tsx";
+import * as $6 from "./routes/github/[username].tsx";
+import * as $7 from "./routes/index.tsx";
+import * as $8 from "./routes/scratch.tsx";
+import * as $9 from "./routes/search.tsx";
 import * as $$0 from "./islands/Countdown.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 
@@ -18,11 +20,13 @@ const manifest = {
     "./routes/[name].tsx": $0,
     "./routes/about.tsx": $1,
     "./routes/api/joke.ts": $2,
-    "./routes/countdown.tsx": $3,
-    "./routes/github/[username].tsx": $4,
-    "./routes/index.tsx": $5,
-    "./routes/scratch.tsx": $6,
-    "./routes/search.tsx": $7,
+    "./routes/api/users/[id].ts": $3,
+    "./routes/api/users/index.ts": $4,
+    "./routes/countdown.tsx": $5,
+    "./routes/github/[username].tsx": $6,
+    "./routes/index.tsx": $7,
+    "./routes/scratch.tsx": $8,
+    "./routes/search.tsx": $9,
   },
   islands: {
     "./islands/Countdown.tsx": $$0,

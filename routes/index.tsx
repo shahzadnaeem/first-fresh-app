@@ -29,6 +29,8 @@ export default function Home() {
           <h1 class={tw`text-2xl mb-4`}>Links</h1>
           <div className={tw`grid grid-auto-rows gap-4`}>
             <LinkTo link="/scratch">Scratch Page</LinkTo>
+            <LinkTo link="/search">Search Page</LinkTo>
+            <LinkTo link="/about">About Page</LinkTo>
           </div>
         </div>
       </div>
