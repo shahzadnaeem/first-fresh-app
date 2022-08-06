@@ -9,7 +9,7 @@ import {
 } from "../../../data/users.ts";
 
 export const handler: Handlers = {
-  GET(req, ctx) {
+  GET(_, ctx) {
     const id = Number(ctx.params.id);
 
     const user = getUserById(id);
