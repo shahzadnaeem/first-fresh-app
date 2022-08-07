@@ -23,6 +23,10 @@ export default function Page() {
     >
       <h1 class={tw`text-2xl mb-2 text-center`}>Scratch</h1>
 
+      <h1 class={tw`text-center text-2xl font-extrabold whoa-plugin`}>
+        Mooooove!
+      </h1>
+
       <div
         class={tw`bg-yellow-50 grid grid-cols-2 gap-4 p-4`}
       >

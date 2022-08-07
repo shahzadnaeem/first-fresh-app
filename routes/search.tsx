@@ -1,7 +1,9 @@
 // routes/search.tsx
 
 /** @jsx h */
-import { ComponentChildren, h } from "preact";
+/** @jsxFrag Fragment */
+
+import { ComponentChildren, Fragment, h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { tw } from "@twind";
 import Home from "../components/Home.tsx";
@@ -37,25 +39,41 @@ function H2(props: HxProps) {
   return <h2 class={tw`text-xl`}>{props.children}</h2>;
 }
 
-interface UlProps {
-  data: string[];
-  italics?: boolean | undefined;
+interface SearchDisplayProps {
+  inputs: string[];
+  results: string[];
+  query: string;
 }
 
-function UL(props: UlProps) {
+function SearchDisplay(props: SearchDisplayProps) {
   return (
-    <ul class={tw`grid grid-cols-4 gap-4 justify-evenly`}>
-      {props.data.map((name) => (
-        <li
-          class={tw`border-2 p-2 ${
-            props.italics ? "italic border-blue-200" : "border-pink-200"
-          }`}
-          key={name}
-        >
-          {name}
-        </li>
-      ))}
-    </ul>
+    <>
+      <H2>Query</H2>
+      <p>{props.query}</p>
+
+      <H2>Results ({props.results.length})</H2>
+
+      <ul class={tw`grid grid-cols-4 gap-4 justify-evenly`}>
+        {props.inputs.map((name) => {
+          const result = props.results.includes(name);
+
+          return (
+            (
+              <div
+                class={tw`border-2 p-2 ${
+                  result
+                    ? "border-blue-200"
+                    : "border-red-200 italic filter blur-xs"
+                }`}
+                key={name}
+              >
+                {name}
+              </div>
+            )
+          );
+        })}
+      </ul>
+    </>
   );
 }
 
@@ -78,15 +96,8 @@ export default function Page({ data }: PageProps<Data>) {
         <button class={tw`ring-2`} type="submit">Search</button>
       </form>
 
-      <H2>Inputs</H2>
-      <UL data={inputs} italics={true}></UL>
+      <SearchDisplay inputs={inputs} results={results} query={query} />
 
-      <H2>Query</H2>
-      <p>{query}</p>
-
-      <H2>Results</H2>
-
-      <UL data={results}></UL>
       <Home />
     </div>
   );
