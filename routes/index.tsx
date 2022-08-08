@@ -35,9 +35,13 @@ export default function Page() {
           <div className={tw`grid grid-auto-rows gap-4`}>
             <LinkTo link="/scratch">Scratch Page</LinkTo>
             <LinkTo link="/users">Users Page</LinkTo>
+            <LinkTo link="/api/users">'/api/users' Page</LinkTo>
             <LinkTo link="/search">Search Page</LinkTo>
-            <LinkTo link="/Shahzad">'Shahzad' Page</LinkTo>
-            <LinkTo link="/666">'666' Page</LinkTo>
+            <LinkTo link="/Shahzad">'/Shahzad' Page</LinkTo>
+            <LinkTo link="/666">'/666' Page</LinkTo>
+            <LinkTo link="/github/shahzadnaeem">
+              '/github/shahzadnaeem' Page
+            </LinkTo>
             <LinkTo link="/about">About Page</LinkTo>
           </div>
         </div>
