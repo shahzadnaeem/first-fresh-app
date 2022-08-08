@@ -81,7 +81,7 @@ export default function Page({ data }: PageProps<Data>) {
   const { inputs, results, query } = data;
   return (
     <div class={tw`grid gap-4 mx-auto mt-4 max-w-md`}>
-      <H1>Search</H1>
+      <h1 class={tw`text-2xl mt-4 text-center`}>Search</h1>
 
       <p>Using standard HTTP {"<form>"} behaviour - look for '?q=' in URL</p>
 

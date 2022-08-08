@@ -17,7 +17,7 @@ export const handler: Handlers = {
 export default function AboutPage() {
   return (
     <main class={tw`grid gap-4 mx-auto mt-4 max-w-md`}>
-      <h1 class={tw`text-2xl mb-4`}>About</h1>
+      <h1 class={tw`text-2xl mt-4 text-center`}>About</h1>
       <p>This is the about page.</p>
 
       <Home />

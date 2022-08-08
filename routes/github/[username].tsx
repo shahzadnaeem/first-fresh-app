@@ -3,7 +3,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { tw } from "../../utils/twind.ts";
+import { tw } from "@twind";
 
 interface User {
   login: string;

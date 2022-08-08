@@ -21,7 +21,7 @@ export default function Page() {
       class={tw
         `bg-green-100 border-1 border-green-800 outline-1 grid gap-4 mx-auto mt-4 max-w-md`}
     >
-      <h1 class={tw`text-2xl mb-2 text-center`}>Scratch</h1>
+      <h1 class={tw`text-2xl mt-4 text-center`}>Scratch</h1>
 
       <h1 class={tw`text-center text-2xl font-extrabold whoa-plugin`}>
         Mooooove!

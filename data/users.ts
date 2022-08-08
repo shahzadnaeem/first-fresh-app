@@ -1,5 +1,15 @@
+export enum AGE {
+  BABY = "Baby",
+  TODDLER = "Toddler",
+  YOUTH = "Youth",
+  PRIME = "Prime of Life",
+  AGED = "Creaking",
+}
+
 export interface UserData {
+  name: string;
   email: string;
+  age: AGE;
 }
 
 export interface User extends UserData {
@@ -14,11 +24,15 @@ export class UserNotFoundException extends UserException {}
 export const USERS: User[] = [
   {
     id: 1,
+    name: "User 1",
     email: "user1@example.com",
+    age: AGE.YOUTH,
   },
   {
     id: 2,
+    name: "User 2",
     email: "user2@example.com",
+    age: AGE.PRIME,
   },
 ];
 
@@ -61,7 +75,9 @@ export const createUser = (userData: UserData): User => {
 
   const newUser: User = {
     id,
+    name: userData.name || "Anon",
     email: userData.email,
+    age: userData.age || AGE.AGED,
   };
 
   USERS.push(newUser);

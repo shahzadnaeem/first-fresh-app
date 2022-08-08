@@ -23,7 +23,9 @@ GET http://localhost:8000/api/users/1 HTTP/1.1
 POST http://localhost:8000/api/users HTTP/1.1
 
 {
-    "email": "new-2@example.com"
+    "name": "New POSTed User",
+    "email": "new-posted-user@example.com",
+    "age": "Youth"
 }
 
 ###
