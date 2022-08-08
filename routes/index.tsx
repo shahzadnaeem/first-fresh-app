@@ -42,6 +42,9 @@ export default function Page() {
             <LinkTo link="/github/shahzadnaeem">
               '/github/shahzadnaeem' Page
             </LinkTo>
+            <LinkTo link="/github/boolean-uk">
+              '/github/boolean-uk' Page
+            </LinkTo>
             <LinkTo link="/about">About Page</LinkTo>
           </div>
         </div>

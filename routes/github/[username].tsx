@@ -11,6 +11,22 @@ interface User {
   name: string;
   html_url: string;
   avatar_url: string;
+  repos_url: string;
+}
+
+interface GitHub {
+  user: User;
+  repos: string[];
+}
+
+function logRepos(repos) {
+  let n = 0;
+
+  repos.slice(-10).forEach((repo) => {
+    n++;
+
+    console.log(`repo #${n}: ${repo.name} ...`);
+  });
 }
 
 export const handler: Handlers<User | null> = {
@@ -22,6 +38,12 @@ export const handler: Handlers<User | null> = {
     }
     const user: User = await resp.json();
     // console.log(user);
+
+    console.log(`API url=${user.repos_url}`);
+    // const reposResp = await fetch(`${user.repos_url}`);
+    // const repos = await reposResp.json();
+    // logRepos(repos);
+
     return ctx.render(user);
   },
 };
@@ -36,14 +58,23 @@ export default function Page({ data }: PageProps<User | null>) {
       <h1 class={tw`text-2xl mb-4 text-center`}>{data.name}</h1>
       <img class={tw`mx-auto`} src={data.avatar_url} width={64} height={64} />
       <h2 class={tw`text-lg mb-4 text-center`}>{data.login}</h2>
-      <a
-        class={tw
-          `w-1/2 p-4 bg-indigo-600 rounded-md hover:bg-indigo-400 text-white font-weight-bold text-center text-lg`}
-        href={data.html_url}
-      >
-        {data.name}'s GitHub
-      </a>
+      <div class={tw`grid grid-cols-2 gap-4`}>
+        <a
+          class={tw
+            `p-4 bg-indigo-600 rounded-md hover:bg-indigo-400 text-white font-bold text-lg grid place-content-center text-center`}
+          href={data.html_url}
+        >
+          {data.name}'s GitHub
+        </a>
 
+        <a
+          class={tw
+            `p-4 bg-indigo-600 rounded-md hover:bg-indigo-400 text-white font-bold text-lg grid place-content-center text-center`}
+          href="https://github.com/shahzadnaeem/first-fresh-app"
+        >
+          This repo
+        </a>
+      </div>
       <Home />
     </div>
   );
